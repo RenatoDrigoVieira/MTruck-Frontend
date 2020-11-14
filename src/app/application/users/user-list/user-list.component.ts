@@ -1,4 +1,6 @@
+import { Route } from '@angular/compiler/src/core';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-list',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserListComponent implements OnInit {
 
-  constructor() { }
+  deuses = ['Renatosiris', 'Higod', 'Gergod', 'Kamichristian']
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
   }
 
+  newUser() {
+
+    this.router.navigate(['app', 'user', 'new-user']);
+  }
 }

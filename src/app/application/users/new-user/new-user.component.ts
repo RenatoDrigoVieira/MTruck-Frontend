@@ -9,6 +9,7 @@ import { User } from 'src/app/models/User';
   templateUrl: './new-user.component.html',
   styleUrls: ['./new-user.component.scss']
 })
+
 export class NewUserComponent implements OnInit {
 
   user: User = new User()

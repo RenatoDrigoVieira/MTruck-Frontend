@@ -21,7 +21,6 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
   imports: [
     CommonModule,
     MatListModule,
-    NewUserComponent,
     MatIconModule,
     MatToolbarModule,
     MatButtonModule,
@@ -32,6 +31,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     MatSelectModule,
     MatOptionModule,
     MatSnackBarModule,
+    NewUserRouting
   ],
 })
 export class NewUserModule {}
