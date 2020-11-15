@@ -9,6 +9,7 @@ import { LoginStateModel } from './login.model';
     logged: false,
     name: '',
     userType: '',
+    empresaId: '',
   },
 })
 @Injectable()
@@ -29,6 +30,7 @@ export class LoginState {
       ...state,
       name: action.name,
       userType: action.userType,
+      empresaId: action.empresaId,
     });
   }
 }

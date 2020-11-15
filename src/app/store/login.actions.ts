@@ -5,5 +5,9 @@ export class SetLogged {
 
 export class SetUser {
   static readonly type = '[Login] Set User';
-  constructor(public name: string, public userType: string) {}
+  constructor(
+    public name: string,
+    public userType: string,
+    public empresaId: string
+  ) {}
 }

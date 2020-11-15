@@ -34,7 +34,9 @@ export class LoginComponent implements OnInit {
       );
       console.log(user);
       this.store.dispatch(new SetLogged(true));
-      this.store.dispatch(new SetUser(user.name, user.perfil_usuario));
+      this.store.dispatch(
+        new SetUser(user.name, user.perfil_usuario, user.empresa_id)
+      );
       if (user.perfil_usuario === 'admin') {
         this.router.navigate(['app', 'company']);
       } else if (user.perfil_usuario === 'gerente') {
