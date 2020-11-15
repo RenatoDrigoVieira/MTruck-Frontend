@@ -34,12 +34,12 @@ export class LoginComponent implements OnInit {
       );
       console.log(user);
       this.store.dispatch(new SetLogged(true));
-      this.store.dispatch(new SetUser(user.name, user.perfil_id));
-      if (user.perfil_id === 'administrador') {
+      this.store.dispatch(new SetUser(user.name, user.perfil_usuario));
+      if (user.perfil_usuario === 'admin') {
         this.router.navigate(['app', 'company']);
-      } else if (user.perfil_id === 'gerente') {
+      } else if (user.perfil_usuario === 'gerente') {
         this.router.navigate(['app', 'truck']);
-      } else if (user.perfil_id === 'operador') {
+      } else if (user.perfil_usuario === 'operador') {
       }
     } catch {
       this.snackBar.open('Usuario não encontrado', '', {
