@@ -3,7 +3,7 @@ export class SetLogged {
   constructor(public logged: boolean) {}
 }
 
-export class SetUserType {
-  static readonly type = '[Login] Set User Type';
-  constructor(public userType: string) {}
+export class SetUser {
+  static readonly type = '[Login] Set User';
+  constructor(public name: string, public userType: string) {}
 }

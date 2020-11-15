@@ -19,6 +19,13 @@ const routes: Routes = [
             'src/app/application/companies/company-list/company-list.module'
           ).then((m) => m.CompanyModule),
       },
+      {
+        path: 'truck',
+        loadChildren: () =>
+          import(
+            'src/app/application/trucks/truck-list/truck-list.module'
+          ).then((m) => m.TruckModule),
+      },
     ],
   },
 ];

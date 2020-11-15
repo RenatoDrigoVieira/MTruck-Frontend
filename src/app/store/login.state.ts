@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
 import { Action, State, StateContext } from '@ngxs/store';
-import { SetLogged, SetUserType } from './login.actions';
+import { SetLogged, SetUser } from './login.actions';
 import { LoginStateModel } from './login.model';
 
 @State<LoginStateModel>({
   name: 'login',
   defaults: {
     logged: false,
+    name: '',
     userType: '',
   },
 })
@@ -21,11 +22,12 @@ export class LoginState {
     });
   }
 
-  @Action(SetUserType)
-  setUserType(ctx: StateContext<LoginStateModel>, action: SetUserType) {
+  @Action(SetUser)
+  setUser(ctx: StateContext<LoginStateModel>, action: SetUser) {
     const state = ctx.getState();
     ctx.setState({
       ...state,
+      name: action.name,
       userType: action.userType,
     });
   }

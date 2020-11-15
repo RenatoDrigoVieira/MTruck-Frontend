@@ -1,45 +1,44 @@
 <div>
-    <mat-toolbar color="primary">
-        <mat-toolbar-row>
-            <span>Cadastro de Empresas</span>
-            <button (click)="return()" mat-icon-button> <mat-icon>keyboard_backspace</mat-icon></button>
-          </mat-toolbar-row>
-      </mat-toolbar>
-<div class="wrapper">
+  <mat-toolbar color="primary">
+    <mat-toolbar-row>
+      <span>Cadastro de Empresa</span>
+      <button (click)="return()" mat-icon-button>
+        <mat-icon>keyboard_backspace</mat-icon>
+      </button>
+    </mat-toolbar-row>
+  </mat-toolbar>
+  <div class="wrapper">
     <mat-card>
-
-        <form [formGroup]="newCompanyForm">
-            <mat-form-field appearance="outline">
-                <mat-label>
-                   Nome da Empresa
-                </mat-label>
-                <input matInput formControlName="name">
-            </mat-form-field>
-            <mat-form-field appearance="outline">
-               <mat-label>
-                  CNPJ
-               </mat-label>
-               <input matInput formControlName="cnpj">
-           </mat-form-field>
-           <mat-form-field appearance="outline">
-               <mat-label>
-                  Sede
-               </mat-label>
-               <input matInput formControlName="sede">
-           </mat-form-field>
-           <mat-form-field appearance="outline">
-               <mat-label>
-                   Contratos
-                </mat-label>
-                <mat-select formControlName="contrato">
-                    <mat-option *ngFor="let contrato of contratos" [value]="contrato">
-                        {{contrato}}
-                    </mat-option>
-                </mat-select>
-           </mat-form-field>
-           <button [disabled]="!newCompanyForm.valid" (click)="registerCompany()" mat-raised-button color="primary">Cadastrar</button>
-        </form>
+      <form [formGroup]="newCompanyForm">
+        <mat-form-field appearance="outline">
+          <mat-label> Nome da Empresa </mat-label>
+          <input matInput formControlName="name" />
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label> CNPJ </mat-label>
+          <input matInput formControlName="cnpj" />
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label> Sede </mat-label>
+          <input matInput formControlName="sede" />
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label> Contratos </mat-label>
+          <mat-select formControlName="contrato">
+            <mat-option *ngFor="let contrato of contratos" [value]="contrato">
+              {{ contrato }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <button
+          [disabled]="!newCompanyForm.valid"
+          (click)="registerCompany()"
+          mat-raised-button
+          color="primary"
+        >
+          Cadastrar
+        </button>
+      </form>
     </mat-card>
-
-</div>
+  </div>
 </div>

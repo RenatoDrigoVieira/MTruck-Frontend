@@ -1,0 +1,16 @@
+<div>
+  <mat-toolbar color="primary">
+    <mat-toolbar-row>
+      <span>Listagem de Caminhões</span>
+      <button (click)="newTruck()" mat-icon-button>
+        <mat-icon>add</mat-icon>
+      </button>
+    </mat-toolbar-row>
+  </mat-toolbar>
+  <mat-list>
+    <mat-list-item *ngFor="let truck of trucks">
+      <mat-icon matListIcon>folder</mat-icon>
+      <h3 matLine>{{ truck }}</h3>
+    </mat-list-item>
+  </mat-list>
+</div>

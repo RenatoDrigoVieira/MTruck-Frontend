@@ -1,0 +1,32 @@
+<div>
+  <mat-toolbar color="primary">
+    <mat-toolbar-row>
+      <span>Cadastro de Caminhão</span>
+      <button (click)="return()" mat-icon-button>
+        <mat-icon>keyboard_backspace</mat-icon>
+      </button>
+    </mat-toolbar-row>
+  </mat-toolbar>
+  <div class="wrapper">
+    <mat-card>
+      <form [formGroup]="newTruckForm">
+        <mat-form-field appearance="outline">
+          <mat-label> Placa </mat-label>
+          <input matInput formControlName="placa" />
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label> Carga </mat-label>
+          <input matInput formControlName="cargar" />
+        </mat-form-field>
+        <button
+          [disabled]="!newTruckForm.valid"
+          (click)="registerTruck()"
+          mat-raised-button
+          color="primary"
+        >
+          Cadastrar
+        </button>
+      </form>
+    </mat-card>
+  </div>
+</div>

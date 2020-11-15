@@ -13,6 +13,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgxsModule } from '@ngxs/store';
 import { LoginState } from './store/login.state';
 import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [AppComponent, LoginComponent],
@@ -24,6 +26,8 @@ import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
     MatFormFieldModule,
     MatButtonModule,
     MatInputModule,
+    ReactiveFormsModule,
+    MatSnackBarModule,
     NgxsModule.forRoot([LoginState]),
     NgxsReduxDevtoolsPluginModule.forRoot(),
   ],
