@@ -1,51 +1,55 @@
 <div>
-    <mat-toolbar color="primary">
-        <mat-toolbar-row>
-            <span>Cadastro de Usuários</span>
-            <button (click)="return()" mat-icon-button>
-                <mat-icon>keyboard_backspace</mat-icon>
-            </button>
-        </mat-toolbar-row>
-    </mat-toolbar>
-    <div class="wrapper">
-        <mat-card>
+  <mat-toolbar color="primary">
+    <mat-toolbar-row>
+      <span>Cadastro de Usuários</span>
+      <button (click)="return()" mat-icon-button>
+        <mat-icon>keyboard_backspace</mat-icon>
+      </button>
+    </mat-toolbar-row>
+  </mat-toolbar>
+  <div class="wrapper">
+    <mat-card>
+      <form [formGroup]="newUserForm">
+        <mat-form-field appearance="outline">
+          <mat-label> Nome do Usuário </mat-label>
+          <input matInput formControlName="name" [(ngModel)]="user.name" />
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label> CPF </mat-label>
+          <input matInput formControlName="cpf" [(ngModel)]="user.cpf" />
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label> E-mail </mat-label>
+          <input matInput formControlName="email" [(ngModel)]="user.email" />
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label> Senha </mat-label>
+          <input
+            type="password"
+            matInput
+            formControlName="password"
+            [(ngModel)]="user.password"
+          />
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label> Repetir senha: </mat-label>
+          <input
+            type="password"
+            matInput
+            formControlName="rptPassword"
+            [(ngModel)]="rptPassword"
+          />
+        </mat-form-field>
 
-            <form [formGroup]="newUserForm">
-                <mat-form-field appearance="outline">
-                    <mat-label>
-                        Nome do Usuário
-                    </mat-label>
-                    <input matInput formControlName="name" [(ngModel)]="user.name">
-                </mat-form-field>
-                <mat-form-field appearance="outline">
-                    <mat-label>
-                        CPF
-                    </mat-label>
-                    <input matInput formControlName="cpf" [(ngModel)]="user.cpf">
-                </mat-form-field>
-                <mat-form-field appearance="outline">
-                    <mat-label>
-                        E-mail    
-                    </mat-label>
-                    <input matInput formControlName="email" [(ngModel)]="user.email">
-                </mat-form-field>
-                <mat-form-field appearance="outline">
-                    <mat-label>
-                        Senha    
-                    </mat-label>
-                    <input matInput formControlName="password" [(ngModel)]="user.password">
-                </mat-form-field>
-                <mat-form-field appearance="outline">
-                    <mat-label>
-                        Repetir senha:    
-                    </mat-label>
-                    <input matInput formControlName="rptPassword" [(ngModel)]="rptPassword">
-                </mat-form-field>
-
-                <button [disabled]="!newUserForm.valid" (click)="registerUser()" mat-raised-button
-                    color="primary">Cadastrar</button>
-            </form>
-        </mat-card>
-
-    </div>
+        <button
+          [disabled]="!newUserForm.valid"
+          (click)="registerUser()"
+          mat-raised-button
+          color="primary"
+        >
+          Cadastrar
+        </button>
+      </form>
+    </mat-card>
+  </div>
 </div>
