@@ -13,11 +13,20 @@ const routes: Routes = [
         redirectTo: 'company',
       },
       {
+
         path: 'company',
         loadChildren: () =>
           import(
             'src/app/application/companies/company-list/company-list.module'
-          ).then((m) => m.CompanyModule),
+          ).then((m) => m.CompanyListModule),
+      },
+      {
+        
+        path: 'user',
+        loadChildren: () =>
+          import(
+            'src/app/application/users/user-list/user-list.module'
+          ).then((m) => m.UserListModule),
       },
       {
         path: 'truck',
@@ -34,4 +43,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class ApplicationRoutingModule {}
+export class ApplicationRoutingModule { }
