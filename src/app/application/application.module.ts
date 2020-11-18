@@ -8,14 +8,6 @@ import { TripListComponent } from './operator/trips/trip-list/trip-list.componen
 import { NewTripComponent } from './operator/trips/new-trip/new-trip.component';
 
 @NgModule({
-  declarations: [
-    ApplicationComponent,
-    OperatorComponent,
-    TripListComponent,
-    NewTripComponent,
-  ],
-
-@NgModule({
   declarations: [ApplicationComponent],
   imports: [ApplicationRoutingModule],
 })
