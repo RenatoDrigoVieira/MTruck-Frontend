@@ -1,12 +1,15 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NewTripComponent } from './new-trip.component';
+import { NewTripRouting } from './new-trip.routing';
 
 
 
 @NgModule({
-  declarations: [],
+  declarations: [NewTripComponent],
   imports: [
-    CommonModule
+    CommonModule,
+    NewTripRouting
   ]
 })
 export class NewTripModule { }

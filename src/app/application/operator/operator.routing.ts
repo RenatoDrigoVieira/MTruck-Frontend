@@ -8,7 +8,12 @@ const routes: Routes = [
     component: OperatorComponent,
     children: [
       {
-        path: 'trip',
+        path: '',
+        pathMatch: 'full',
+        redirectTo: 'trips'
+      },
+      {
+        path: 'trips',
         loadChildren: () =>
           import(
             'src/app/application/operator/trips/trip-list/trip-list.module'

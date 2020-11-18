@@ -12,8 +12,15 @@ const routes: Routes = [
     loadChildren: () =>
       import('src/app/application/operator/trips/new-trip/new-trip.module').then(
         (m) => m.NewTripModule
-      ),
+      )
   },
+  {
+    path: 'overview',
+    loadChildren: () =>
+      import('src/app/application/operator/trips/gps/gps.module').then(
+        m => m.GpsModule
+      )
+  }
 ];
 
 @NgModule({

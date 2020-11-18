@@ -1,12 +1,15 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { OperatorComponent } from './operator.component';
+import { OperatorRoutingModule } from './operator.routing';
 
 
 
 @NgModule({
-  declarations: [],
+  declarations: [OperatorComponent],
   imports: [
-    CommonModule
+    CommonModule,
+    OperatorRoutingModule
   ]
 })
 export class OperatorModule { }
