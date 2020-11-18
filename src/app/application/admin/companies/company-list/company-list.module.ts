@@ -9,6 +9,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { CommonModule } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
 import { ToolbarModule } from 'src/app/application/common/toolbar/toolbar.module';
+import { MatTableModule } from '@angular/material/table';
 
 @NgModule({
   declarations: [CompanyListComponent],
@@ -19,6 +20,7 @@ import { ToolbarModule } from 'src/app/application/common/toolbar/toolbar.module
     MatIconModule,
     ToolbarModule,
     MatButtonModule,
+    MatTableModule,
   ],
 })
 export class CompanyListModule {}

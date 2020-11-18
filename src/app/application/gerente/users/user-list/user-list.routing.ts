@@ -14,6 +14,13 @@ const routes: Routes = [
         (m) => m.NewUserModule
       ),
   },
+  {
+    path: ':userId',
+    loadChildren: () =>
+      import(
+        'src/app/application/gerente/users/edit-user/edit-user.module'
+      ).then((m) => m.EditUserModule),
+  },
 ];
 
 @NgModule({

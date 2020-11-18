@@ -1,1 +1,37 @@
-<p>edit-company works!</p>
+<div>
+  <app-toolbar title="Edição de Empresa" [return]="return"></app-toolbar>
+  <div class="wrapper">
+    <mat-card>
+      <form [formGroup]="editCompanyForm">
+        <mat-form-field appearance="outline">
+          <mat-label> Nome da Empresa </mat-label>
+          <input matInput formControlName="nome" />
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label> CNPJ </mat-label>
+          <input matInput formControlName="cnpj" />
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label> Sede </mat-label>
+          <input matInput formControlName="sede" />
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label> Contratos </mat-label>
+          <mat-select formControlName="contrato">
+            <mat-option *ngFor="let contrato of contratos" [value]="contrato">
+              {{ contrato }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <button
+          [disabled]="!editCompanyForm.valid"
+          (click)="editCompany()"
+          mat-raised-button
+          color="primary"
+        >
+          Editar
+        </button>
+      </form>
+    </mat-card>
+  </div>
+</div>

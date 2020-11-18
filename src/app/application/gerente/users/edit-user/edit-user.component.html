@@ -1,1 +1,30 @@
-<p>edit-user works!</p>
+<div>
+  <app-toolbar title="Edição de Usuário" [return]="return"></app-toolbar>
+  <div class="wrapper">
+    <mat-card>
+      <form [formGroup]="editUserForm">
+        <mat-form-field appearance="outline">
+          <mat-label> Nome do Usuário </mat-label>
+          <input matInput formControlName="name" [(ngModel)]="user.name" />
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label> CPF </mat-label>
+          <input matInput formControlName="cpf" [(ngModel)]="user.cpf" />
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label> E-mail </mat-label>
+          <input matInput formControlName="email" [(ngModel)]="user.email" />
+        </mat-form-field>
+
+        <button
+          [disabled]="!editUserForm.valid"
+          (click)="editUser()"
+          mat-raised-button
+          color="primary"
+        >
+          Editar
+        </button>
+      </form>
+    </mat-card>
+  </div>
+</div>

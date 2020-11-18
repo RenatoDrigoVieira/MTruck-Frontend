@@ -8,13 +8,18 @@ import { Router } from '@angular/router';
   styleUrls: ['./user-list.component.scss'],
 })
 export class UserListComponent implements OnInit {
-  deuses = ['Renatosiris', 'Higod', 'Gergod', 'Kamichristian'];
+  users = [{ name: 'Nome', cpf: 'CPF', email: 'Email' }];
+  displayedColumns: string[] = ['Nome', 'CPF', 'Email', 'Actions'];
   constructor(private router: Router) {}
 
   ngOnInit(): void {}
 
   newUser = () => {
     this.router.navigate(['app', 'gerente', 'user', 'new-user']);
+  };
+
+  editUser = (userId) => {
+    this.router.navigate(['app', 'gerente', 'user', 1]);
   };
 
   return = () => {

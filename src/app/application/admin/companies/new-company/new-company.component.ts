@@ -14,7 +14,7 @@ export class NewCompanyComponent implements OnInit {
   constructor(private router: Router, private snackBar: MatSnackBar) {}
 
   newCompanyForm = new FormGroup({
-    name: new FormControl('', [Validators.required]),
+    nome: new FormControl('', [Validators.required]),
     cnpj: new FormControl('', [Validators.required]),
     sede: new FormControl('', [Validators.required]),
     contrato: new FormControl('', [Validators.required]),

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
+import { HttpService } from 'src/app/services/http-service';
 
 @Component({
   selector: 'app-company-list',
@@ -7,13 +8,21 @@ import { Router, RouterModule } from '@angular/router';
   styleUrls: ['./company-list.component.scss'],
 })
 export class CompanyListComponent implements OnInit {
-  companies = ['Empresa A', 'Empresa B', 'Empresa C'];
+  companies;
+  contratos;
+  displayedColumns: string[] = ['Nome', 'CNPJ', 'Sede', 'Contrato', 'Actions'];
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private httpService: HttpService) {}
 
-  ngOnInit(): void {}
+  async ngOnInit() {
+    this.companies = await this.httpService.get(`empresas`);
+  }
 
   newCompany = () => {
     this.router.navigate(['app', 'admin', 'company', 'new-company']);
   };
+
+  editCompany(companyId) {
+    this.router.navigate(['app', 'admin', 'company', companyId]);
+  }
 }

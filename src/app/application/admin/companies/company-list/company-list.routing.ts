@@ -14,6 +14,13 @@ const routes: Routes = [
         'src/app/application/admin/companies/new-company/new-company.module'
       ).then((m) => m.NewCompanyModule),
   },
+  {
+    path: ':editId',
+    loadChildren: () =>
+      import(
+        'src/app/application/admin/companies/edit-company/edit-company.module'
+      ).then((m) => m.EditCompanyModule),
+  },
 ];
 
 @NgModule({
