@@ -10,7 +10,7 @@ import { HttpService } from 'src/app/services/http-service';
 })
 export class TripListComponent implements OnInit {
 
-  trips
+  trips = [{modelo: 'xsqdl', placa: 'abcd1234', chassi: 'bitruck'}]
   displayedColumns: string[] = ['Modelo', 'Placa', 'Chassi', 'Actions']
 
   constructor(private router: Router,

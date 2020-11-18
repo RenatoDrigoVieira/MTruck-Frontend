@@ -1,12 +1,15 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { GpsComponent } from './gps.component';
+import { GpsRouting } from './gps.routing';
 
 
 
 @NgModule({
-  declarations: [],
+  declarations: [GpsComponent],
   imports: [
-    CommonModule
+    CommonModule,
+    GpsRouting
   ]
 })
 export class GpsModule { }
