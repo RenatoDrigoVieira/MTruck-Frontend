@@ -14,6 +14,13 @@ const routes: Routes = [
         (m) => m.NewTruckModule
       ),
   },
+  {
+    path: ':truckId',
+    loadChildren: () =>
+      import('src/app/application/trucks/edit-truck/edit-truck.module').then(
+        (m) => m.EditTruckModule
+      ),
+  },
 ];
 
 @NgModule({

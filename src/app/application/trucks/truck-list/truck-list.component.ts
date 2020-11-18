@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
+import { Store } from '@ngxs/store';
+import { HttpService } from 'src/app/services/http-service';
 
 @Component({
   selector: 'app-truck-list',
@@ -7,13 +9,26 @@ import { Router, RouterModule } from '@angular/router';
   styleUrls: ['./truck-list.component.scss'],
 })
 export class TruckListComponent implements OnInit {
-  trucks = ['Caminhão A', 'Caminhão B', 'Caminhão C'];
+  trucks;
+  displayedColumns: string[] = ['Modelo', 'Placa', 'Chassi', 'Actions'];
+  constructor(
+    private router: Router,
+    private store: Store,
+    private httpService: HttpService
+  ) {}
 
-  constructor(private router: Router) {}
-
-  ngOnInit(): void {}
+  async ngOnInit() {
+    const empresaId = this.store.selectSnapshot<string>(
+      (state) => state.login.empresaId
+    );
+    this.trucks = await this.httpService.get(`empresas/caminhoes/${empresaId}`);
+    console.log(this.trucks);
+  }
 
   newTruck() {
     this.router.navigate(['app', 'truck', 'new-truck']);
+  }
+  editTruck(truckId) {
+    this.router.navigate(['app', 'truck', truckId]);
   }
 }

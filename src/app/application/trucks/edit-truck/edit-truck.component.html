@@ -1,0 +1,36 @@
+<div>
+  <mat-toolbar color="primary">
+    <mat-toolbar-row>
+      <span>Editar Caminhão</span>
+      <button (click)="return()" mat-icon-button>
+        <mat-icon>keyboard_backspace</mat-icon>
+      </button>
+    </mat-toolbar-row>
+  </mat-toolbar>
+  <div class="wrapper">
+    <mat-card>
+      <form [formGroup]="editTruckForm">
+        <mat-form-field appearance="outline">
+          <mat-label> Placa </mat-label>
+          <input matInput formControlName="placa" />
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label> Chassi </mat-label>
+          <input matInput formControlName="chassi" />
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label> Modelo </mat-label>
+          <input matInput formControlName="modelo" />
+        </mat-form-field>
+        <button
+          [disabled]="!editTruckForm.valid"
+          (click)="editTruck()"
+          mat-raised-button
+          color="primary"
+        >
+          Editar
+        </button>
+      </form>
+    </mat-card>
+  </div>
+</div>

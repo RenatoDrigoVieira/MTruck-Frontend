@@ -8,6 +8,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { CommonModule } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
+import { MatTableModule } from '@angular/material/table';
 
 @NgModule({
   declarations: [TruckListComponent],
@@ -18,6 +19,7 @@ import { MatButtonModule } from '@angular/material/button';
     MatIconModule,
     MatToolbarModule,
     MatButtonModule,
+    MatTableModule,
   ],
 })
 export class TruckModule {}
