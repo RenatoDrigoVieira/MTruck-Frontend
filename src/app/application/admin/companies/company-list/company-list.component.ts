@@ -11,11 +11,9 @@ export class CompanyListComponent implements OnInit {
 
   constructor(private router: Router) {}
 
-  ngOnInit(): void {
-    console.log('aaaa');
-  }
+  ngOnInit(): void {}
 
   newCompany() {
-    this.router.navigate(['app', 'company', 'new-company']);
+    this.router.navigate(['app', 'admin', 'company', 'new-company']);
   }
 }

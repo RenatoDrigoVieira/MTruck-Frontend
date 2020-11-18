@@ -8,7 +8,6 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   templateUrl: './new-company.component.html',
   styleUrls: ['./new-company.component.scss'],
 })
-
 export class NewCompanyComponent implements OnInit {
   contratos = ['Contrato A', 'Contrato B', 'Contrato C'];
 
@@ -26,7 +25,7 @@ export class NewCompanyComponent implements OnInit {
   }
 
   return() {
-    this.router.navigate(['app', 'company']);
+    this.router.navigate(['app', 'admin', 'company']);
   }
 
   registerCompany() {

@@ -29,7 +29,7 @@ export class NewTruckComponent implements OnInit {
   ngOnInit(): void {}
 
   return() {
-    this.router.navigate(['app', 'truck']);
+    this.router.navigate(['app', 'gerente', 'truck']);
   }
 
   async registerTruck() {

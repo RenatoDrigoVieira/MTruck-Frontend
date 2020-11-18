@@ -26,9 +26,9 @@ export class TruckListComponent implements OnInit {
   }
 
   newTruck() {
-    this.router.navigate(['app', 'truck', 'new-truck']);
+    this.router.navigate(['app', 'gerente', 'truck', 'new-truck']);
   }
   editTruck(truckId) {
-    this.router.navigate(['app', 'truck', truckId]);
+    this.router.navigate(['app', 'gerente', 'truck', truckId]);
   }
 }
