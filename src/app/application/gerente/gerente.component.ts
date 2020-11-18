@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Store } from '@ngxs/store';
 
 @Component({
   selector: 'app-gerente',
@@ -8,6 +7,7 @@ import { Store } from '@ngxs/store';
   styleUrls: ['./gerente.component.scss'],
 })
 export class GerenteComponent implements OnInit {
+
   constructor(private router: Router) {}
 
   ngOnInit() {}
