@@ -1,0 +1,16 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <span>{{ title }}</span>
+    <div class="buttons">
+      <button mat-icon-button *ngIf="addFunction" (click)="addFunction()">
+        <mat-icon>add</mat-icon>
+      </button>
+      <button mat-icon-button *ngIf="return" (click)="return()">
+        <mat-icon>keyboard_backspace</mat-icon>
+      </button>
+      <button mat-icon-button (click)="loggout()">
+        <mat-icon>exit_to_app</mat-icon>
+      </button>
+    </div>
+  </mat-toolbar-row>
+</mat-toolbar>

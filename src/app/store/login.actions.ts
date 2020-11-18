@@ -11,3 +11,8 @@ export class SetUser {
     public empresaId: string
   ) {}
 }
+
+export class SetLoggout {
+  static readonly type = '[Login] Loggout';
+  constructor() {}
+}

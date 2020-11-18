@@ -25,9 +25,13 @@ export class TruckListComponent implements OnInit {
     console.log(this.trucks);
   }
 
-  newTruck() {
+  return = () => {
+    this.router.navigate(['app', 'gerente']);
+  };
+
+  newTruck = () => {
     this.router.navigate(['app', 'gerente', 'truck', 'new-truck']);
-  }
+  };
   editTruck(truckId) {
     this.router.navigate(['app', 'gerente', 'truck', truckId]);
   }

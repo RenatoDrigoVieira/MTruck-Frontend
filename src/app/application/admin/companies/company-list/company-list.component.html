@@ -1,14 +1,12 @@
 <div>
-    <mat-toolbar color="primary">
-        <mat-toolbar-row>
-            <span>Listagem de Empresas</span>
-            <button (click)="newCompany()" mat-icon-button> <mat-icon>add</mat-icon></button>
-          </mat-toolbar-row>
-      </mat-toolbar>
-    <mat-list>
-        <mat-list-item *ngFor="let company of companies">
-          <mat-icon matListIcon>folder</mat-icon>
-          <h3 matLine> {{company}} </h3>
-        </mat-list-item>
-      </mat-list>
+  <app-toolbar
+    title="Listagem de Empresas"
+    [addFunction]="newCompany"
+  ></app-toolbar>
+  <mat-list>
+    <mat-list-item *ngFor="let company of companies">
+      <mat-icon matListIcon>folder</mat-icon>
+      <h3 matLine>{{ company }}</h3>
+    </mat-list-item>
+  </mat-list>
 </div>

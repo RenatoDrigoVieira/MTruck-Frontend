@@ -24,9 +24,9 @@ export class NewCompanyComponent implements OnInit {
     console.log('aaaaaaaaaa');
   }
 
-  return() {
+  return = () => {
     this.router.navigate(['app', 'admin', 'company']);
-  }
+  };
 
   registerCompany() {
     this.snackBar.open('Empresa cadastrada com sucesso', '', {

@@ -4,10 +4,10 @@ import { NgModule } from '@angular/core';
 import { GerenteMenuComponent } from './gerente-menu.component';
 import { GerenteRoutingModule } from './gerente-menu.routing';
 import { MatIconModule } from '@angular/material/icon';
-import { MatToolbarModule } from '@angular/material/toolbar';
+import { ToolbarModule } from '../../common/toolbar/toolbar.module';
 
 @NgModule({
   declarations: [GerenteMenuComponent],
-  imports: [GerenteRoutingModule, MatIconModule, MatToolbarModule],
+  imports: [GerenteRoutingModule, MatIconModule, ToolbarModule],
 })
 export class GerenteMenuModule {}

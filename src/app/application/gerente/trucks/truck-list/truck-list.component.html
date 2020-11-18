@@ -1,12 +1,10 @@
 <div>
-  <mat-toolbar color="primary">
-    <mat-toolbar-row>
-      <span>Listagem de Caminhões</span>
-      <button (click)="newTruck()" mat-icon-button>
-        <mat-icon>add</mat-icon>
-      </button>
-    </mat-toolbar-row>
-  </mat-toolbar>
+  <app-toolbar
+    title="Listagem de Caminhões"
+    [return]="return"
+    [addFunction]="newTruck"
+  >
+  </app-toolbar>
   <table mat-table [dataSource]="trucks">
     <!--- Note that these columns can be defined in any order.
           The actual rendered columns are set as a property on the row definition" -->

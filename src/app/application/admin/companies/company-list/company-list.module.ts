@@ -8,6 +8,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { CommonModule } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
+import { ToolbarModule } from 'src/app/application/common/toolbar/toolbar.module';
 
 @NgModule({
   declarations: [CompanyListComponent],
@@ -16,7 +17,7 @@ import { MatButtonModule } from '@angular/material/button';
     CompanyRoutingModule,
     MatListModule,
     MatIconModule,
-    MatToolbarModule,
+    ToolbarModule,
     MatButtonModule,
   ],
 })

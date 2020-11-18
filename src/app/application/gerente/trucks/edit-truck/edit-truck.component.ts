@@ -33,9 +33,9 @@ export class EditTruckComponent implements OnInit {
     );
   }
 
-  return() {
+  return = () => {
     this.router.navigate(['app', 'gerente', 'truck']);
-  }
+  };
 
   async editTruck() {
     try {

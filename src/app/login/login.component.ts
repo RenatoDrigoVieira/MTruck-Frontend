@@ -32,7 +32,6 @@ export class LoginComponent implements OnInit {
         'usuarios/login',
         this.loginForm.getRawValue()
       );
-      console.log(user);
       this.store.dispatch(new SetLogged(true));
       this.store.dispatch(
         new SetUser(user.name, user.perfil_usuario, user.empresa_id)

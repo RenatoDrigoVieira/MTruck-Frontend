@@ -15,6 +15,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatOptionModule } from '@angular/material/core';
 import { MatSelectModule } from '@angular/material/select';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { ToolbarModule } from 'src/app/application/common/toolbar/toolbar.module';
 
 @NgModule({
   declarations: [NewUserComponent],
@@ -22,7 +23,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     CommonModule,
     MatListModule,
     MatIconModule,
-    MatToolbarModule,
+    ToolbarModule,
     MatButtonModule,
     ReactiveFormsModule,
     MatFormFieldModule,
@@ -31,7 +32,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     MatSelectModule,
     MatOptionModule,
     MatSnackBarModule,
-    NewUserRouting
+    NewUserRouting,
   ],
 })
 export class NewUserModule {}

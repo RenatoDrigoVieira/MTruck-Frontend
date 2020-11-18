@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Action, State, StateContext } from '@ngxs/store';
-import { SetLogged, SetUser } from './login.actions';
+import { SetLogged, SetLoggout, SetUser } from './login.actions';
 import { LoginStateModel } from './login.model';
 
 @State<LoginStateModel>({
@@ -31,6 +31,17 @@ export class LoginState {
       name: action.name,
       userType: action.userType,
       empresaId: action.empresaId,
+    });
+  }
+  @Action(SetLoggout)
+  setLoggout(ctx: StateContext<LoginStateModel>) {
+    const state = ctx.getState();
+    ctx.setState({
+      ...state,
+      logged: false,
+      name: '',
+      userType: '',
+      empresaId: '',
     });
   }
 }

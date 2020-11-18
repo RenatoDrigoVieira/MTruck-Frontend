@@ -13,7 +13,7 @@ export class CompanyListComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  newCompany() {
+  newCompany = () => {
     this.router.navigate(['app', 'admin', 'company', 'new-company']);
-  }
+  };
 }

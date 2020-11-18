@@ -41,9 +41,9 @@ export class NewUserComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  return(): void {
-    this.router.navigate(['app', 'user']);
-  }
+  return = (): void => {
+    this.router.navigate(['app', 'gerente', 'user']);
+  };
 
   registerUser() {
     this.snackBar.open('Usuário cadastrado com sucesso', 'Ok', {

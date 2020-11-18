@@ -1,12 +1,5 @@
 <div>
-  <mat-toolbar color="primary">
-    <mat-toolbar-row>
-      <span>Cadastro de Empresa</span>
-      <button (click)="return()" mat-icon-button>
-        <mat-icon>keyboard_backspace</mat-icon>
-      </button>
-    </mat-toolbar-row>
-  </mat-toolbar>
+  <app-toolbar title="Cadastro de Empresa" [return]="return"></app-toolbar>
   <div class="wrapper">
     <mat-card>
       <form [formGroup]="newCompanyForm">
