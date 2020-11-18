@@ -11,7 +11,7 @@ const routes: Routes = [
     path: 'new-company',
     loadChildren: () =>
       import(
-        'src/app/application/companies/new-company/new-company.module'
+        'src/app/application/admin/companies/new-company/new-company.module'
       ).then((m) => m.NewCompanyModule),
   },
 ];

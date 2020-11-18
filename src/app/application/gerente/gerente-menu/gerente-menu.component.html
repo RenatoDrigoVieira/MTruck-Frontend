@@ -1,0 +1,17 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <span>Gerente</span>
+  </mat-toolbar-row>
+</mat-toolbar>
+<div class="menu">
+  <div (click)="navigateToUsers()" class="box">
+    <mat-icon>person_outline</mat-icon>
+  </div>
+  <div (click)="navigateToTrucks()" class="box">
+    <mat-icon>local_shipping</mat-icon>
+  </div>
+</div>
+
+<div class="Container">
+  <router-outlet></router-outlet>
+</div>

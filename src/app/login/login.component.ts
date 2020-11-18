@@ -38,9 +38,9 @@ export class LoginComponent implements OnInit {
         new SetUser(user.name, user.perfil_usuario, user.empresa_id)
       );
       if (user.perfil_usuario === 'admin') {
-        this.router.navigate(['app', 'company']);
+        this.router.navigate(['app', 'admin']);
       } else if (user.perfil_usuario === 'gerente') {
-        this.router.navigate(['app', 'truck']);
+        this.router.navigate(['app', 'gerente']);
       } else if (user.perfil_usuario === 'operador') {
       }
     } catch {

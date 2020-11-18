@@ -10,16 +10,16 @@ const routes: Routes = [
   {
     path: 'new-truck',
     loadChildren: () =>
-      import('src/app/application/trucks/new-truck/new-truck.module').then(
-        (m) => m.NewTruckModule
-      ),
+      import(
+        'src/app/application/gerente/trucks/new-truck/new-truck.module'
+      ).then((m) => m.NewTruckModule),
   },
   {
     path: ':truckId',
     loadChildren: () =>
-      import('src/app/application/trucks/edit-truck/edit-truck.module').then(
-        (m) => m.EditTruckModule
-      ),
+      import(
+        'src/app/application/gerente/trucks/edit-truck/edit-truck.module'
+      ).then((m) => m.EditTruckModule),
   },
 ];
 

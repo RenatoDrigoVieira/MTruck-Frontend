@@ -10,9 +10,9 @@ const routes: Routes = [
   {
     path: 'new-user',
     loadChildren: () =>
-      import(
-        'src/app/application/users/new-user/new-user.module'
-      ).then((m) => m.NewUserModule),
+      import('src/app/application/gerente/users/new-user/new-user.module').then(
+        (m) => m.NewUserModule
+      ),
   },
 ];
 

@@ -15,6 +15,7 @@ import { LoginState } from './store/login.state';
 import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { NgxsStoragePluginModule } from '@ngxs/storage-plugin';
 
 @NgModule({
   declarations: [AppComponent, LoginComponent],
@@ -30,6 +31,9 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     MatSnackBarModule,
     NgxsModule.forRoot([LoginState]),
     NgxsReduxDevtoolsPluginModule.forRoot(),
+    NgxsStoragePluginModule.forRoot({
+      key: ['login.logged', 'login.name', 'login.userType', 'login.empresaId'],
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent],
