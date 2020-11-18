@@ -1,1 +1,41 @@
-<p>trip-list works!</p>
+<div>
+    <app-toolbar
+      title="Listagem de Viagens"
+      [return]="return"
+      [addFunction]="newTrip"
+    >
+    </app-toolbar>
+    <table mat-table [dataSource]="trips">
+      <!--- Note that these columns can be defined in any order.
+            The actual rendered columns are set as a property on the row definition" -->
+  
+      <!-- Position Column -->
+      <ng-container matColumnDef="Modelo">
+        <th mat-header-cell *matHeaderCellDef>Modelo</th>
+        <td mat-cell *matCellDef="let element">{{ element.modelo }}</td>
+      </ng-container>
+  
+      <!-- Name Column -->
+      <ng-container matColumnDef="Placa">
+        <th mat-header-cell *matHeaderCellDef>Placa</th>
+        <td mat-cell *matCellDef="let element">{{ element.placa }}</td>
+      </ng-container>
+  
+      <!-- Weight Column -->
+      <ng-container matColumnDef="Chassi">
+        <th mat-header-cell *matHeaderCellDef>Chassi</th>
+        <td mat-cell *matCellDef="let element">{{ element.chassi }}</td>
+      </ng-container>
+  
+      <ng-container matColumnDef="Actions">
+        <th mat-header-cell *matHeaderCellDef>Actions</th>
+        <td mat-cell *matCellDef="let element">
+          <button (click)="checkTrip()" mat-button>Acompanhar Rota</button>
+        </td>
+      </ng-container>
+  
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+  </div>
+  

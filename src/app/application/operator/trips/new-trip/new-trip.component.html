@@ -1,1 +1,38 @@
-<p>new-trip works!</p>
+<div>
+    <app-toolbar title="Cadastro de Viagem" [return]="return"> </app-toolbar>
+    <div class="wrapper">
+      <mat-card>
+        <form [formGroup]="newTripForm">
+          <mat-form-field appearance="outline">
+            <mat-label> Caminhão </mat-label>
+            <input matInput formControlName="caminhao" />
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label> Partida </mat-label>
+            <input matInput formControlName="partida" />
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label> Destino </mat-label>
+            <input matInput formControlName="destino" />
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label> Carga </mat-label>
+            <input matInput formControlName="carga" />
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label> Peso Líquido </mat-label>
+            <input matInput formControlName="peso" />
+          </mat-form-field>
+          <button
+            [disabled]="!newTripForm.valid"
+            (click)="registerTrip()"
+            mat-raised-button
+            color="primary"
+          >
+            Cadastrar
+          </button>
+        </form>
+      </mat-card>
+    </div>
+  </div>
+  

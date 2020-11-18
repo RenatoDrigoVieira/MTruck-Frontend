@@ -41,6 +41,7 @@ export class LoginComponent implements OnInit {
       } else if (user.perfil_usuario === 'gerente') {
         this.router.navigate(['app', 'gerente']);
       } else if (user.perfil_usuario === 'operador') {
+        this.router.navigate(['app', 'operator'])
       }
     } catch {
       this.snackBar.open('Usuario não encontrado', '', {

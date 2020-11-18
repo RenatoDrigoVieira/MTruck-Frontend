@@ -1,4 +1,3 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { ApplicationComponent } from './application.component';
@@ -15,6 +14,9 @@ import { NewTripComponent } from './operator/trips/new-trip/new-trip.component';
     TripListComponent,
     NewTripComponent,
   ],
+
+@NgModule({
+  declarations: [ApplicationComponent],
   imports: [ApplicationRoutingModule],
 })
 export class ApplicationModule {}

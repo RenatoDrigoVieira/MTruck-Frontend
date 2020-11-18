@@ -25,6 +25,13 @@ const routes: Routes = [
             (m) => m.GerenteModule
           ),
       },
+      {
+        path: 'operator',
+        loadChildren: () =>
+          import('src/app/application/operator/operator.module').then(
+            m => m.OperatorModule
+          )
+      }
     ],
   },
 ];
