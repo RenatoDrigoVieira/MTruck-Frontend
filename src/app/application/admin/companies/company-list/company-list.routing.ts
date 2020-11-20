@@ -15,7 +15,7 @@ const routes: Routes = [
       ).then((m) => m.NewCompanyModule),
   },
   {
-    path: ':editId',
+    path: ':companyId',
     loadChildren: () =>
       import(
         'src/app/application/admin/companies/edit-company/edit-company.module'

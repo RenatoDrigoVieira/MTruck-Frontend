@@ -15,6 +15,7 @@ export class CompanyListComponent implements OnInit {
   constructor(private router: Router, private httpService: HttpService) {}
 
   async ngOnInit() {
+    this.contratos = await this.httpService.get('contratos');
     this.companies = await this.httpService.get(`empresas`);
   }
 
@@ -25,4 +26,7 @@ export class CompanyListComponent implements OnInit {
   editCompany(companyId) {
     this.router.navigate(['app', 'admin', 'company', companyId]);
   }
+
+  findContract = (id) =>
+    this.contratos?.find((contrato) => contrato.id === id)?.tipo;
 }
