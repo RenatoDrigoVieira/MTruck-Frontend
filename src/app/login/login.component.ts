@@ -32,6 +32,7 @@ export class LoginComponent implements OnInit {
         'usuarios/login',
         this.loginForm.getRawValue()
       );
+      console.log('a');
       this.store.dispatch(new SetLogged(true));
       this.store.dispatch(
         new SetUser(user.name, user.perfil_usuario, user.empresa_id)
@@ -41,7 +42,7 @@ export class LoginComponent implements OnInit {
       } else if (user.perfil_usuario === 'gerente') {
         this.router.navigate(['app', 'gerente']);
       } else if (user.perfil_usuario === 'operador') {
-        this.router.navigate(['app', 'operator'])
+        this.router.navigate(['app', 'operator']);
       }
     } catch {
       this.snackBar.open('Usuario não encontrado', '', {
