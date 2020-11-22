@@ -23,6 +23,6 @@ export class UserListComponent implements OnInit {
   };
 
   return = () => {
-    this.router.navigate(['app', 'gerente', 'user']);
+    this.router.navigate(['app', 'gerente']);
   };
 }
