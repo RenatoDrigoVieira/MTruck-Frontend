@@ -1,38 +1,41 @@
 <div>
-    <app-toolbar title="Cadastro de Viagem" [return]="return"> </app-toolbar>
-    <div class="wrapper">
-      <mat-card>
-        <form [formGroup]="newTripForm">
-          <mat-form-field appearance="outline">
-            <mat-label> Caminhão </mat-label>
-            <input matInput formControlName="caminhao" />
-          </mat-form-field>
-          <mat-form-field appearance="outline">
-            <mat-label> Partida </mat-label>
-            <input matInput formControlName="partida" />
-          </mat-form-field>
-          <mat-form-field appearance="outline">
-            <mat-label> Destino </mat-label>
-            <input matInput formControlName="destino" />
-          </mat-form-field>
-          <mat-form-field appearance="outline">
-            <mat-label> Carga </mat-label>
-            <input matInput formControlName="carga" />
-          </mat-form-field>
-          <mat-form-field appearance="outline">
-            <mat-label> Peso Líquido </mat-label>
-            <input matInput formControlName="peso" />
-          </mat-form-field>
-          <button
-            [disabled]="!newTripForm.valid"
-            (click)="registerTrip()"
-            mat-raised-button
-            color="primary"
-          >
-            Cadastrar
-          </button>
-        </form>
-      </mat-card>
-    </div>
+  <app-toolbar title="Cadastro de Viagem" [return]="return"> </app-toolbar>
+  <div class="wrapper">
+    <mat-card>
+      <form [formGroup]="newTripForm">
+        <mat-form-field appearance="outline">
+          <mat-label> Caminhão </mat-label>
+          <mat-select formControlName="caminhao_id">
+            <mat-option *ngFor="let truck of trucks" [value]="truck.id">
+              {{ truck.placa }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label> Partida </mat-label>
+          <input matInput formControlName="endereco_origem" />
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label> Destino </mat-label>
+          <input matInput formControlName="endereco_destino" />
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label> Carga </mat-label>
+          <input matInput formControlName="carga" />
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label> Peso Líquido </mat-label>
+          <input type="number" matInput formControlName="peso_inicial" />
+        </mat-form-field>
+        <button
+          [disabled]="!newTripForm.valid"
+          (click)="registerTrip()"
+          mat-raised-button
+          color="primary"
+        >
+          Cadastrar
+        </button>
+      </form>
+    </mat-card>
   </div>
-  
+</div>

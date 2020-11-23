@@ -5,33 +5,23 @@
       <form [formGroup]="newUserForm">
         <mat-form-field appearance="outline">
           <mat-label> Nome do Usuário </mat-label>
-          <input matInput formControlName="name" [(ngModel)]="user.name" />
+          <input matInput formControlName="nome" />
         </mat-form-field>
         <mat-form-field appearance="outline">
           <mat-label> CPF </mat-label>
-          <input matInput formControlName="cpf" [(ngModel)]="user.cpf" />
+          <input matInput formControlName="cpf" />
         </mat-form-field>
         <mat-form-field appearance="outline">
           <mat-label> E-mail </mat-label>
-          <input matInput formControlName="email" [(ngModel)]="user.email" />
+          <input matInput formControlName="email" />
         </mat-form-field>
         <mat-form-field appearance="outline">
           <mat-label> Senha </mat-label>
-          <input
-            type="password"
-            matInput
-            formControlName="password"
-            [(ngModel)]="user.password"
-          />
+          <input type="password" matInput formControlName="password" />
         </mat-form-field>
         <mat-form-field appearance="outline">
           <mat-label> Repetir senha: </mat-label>
-          <input
-            type="password"
-            matInput
-            formControlName="rptPassword"
-            [(ngModel)]="rptPassword"
-          />
+          <input type="password" matInput formControlName="rptPassword" />
         </mat-form-field>
 
         <button

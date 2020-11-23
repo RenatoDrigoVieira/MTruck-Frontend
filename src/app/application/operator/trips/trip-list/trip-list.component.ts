@@ -6,19 +6,30 @@ import { HttpService } from 'src/app/services/http-service';
 @Component({
   selector: 'app-trip-list',
   templateUrl: './trip-list.component.html',
-  styleUrls: ['./trip-list.component.scss']
+  styleUrls: ['./trip-list.component.scss'],
 })
 export class TripListComponent implements OnInit {
+  trips;
+  displayedColumns: string[] = [
+    'Caminhão',
+    'Carga',
+    'Partida',
+    'Destino',
+    'Actions',
+  ];
 
-  trips = [{modelo: 'xsqdl', placa: 'abcd1234', chassi: 'bitruck'}]
-  displayedColumns: string[] = ['Modelo', 'Placa', 'Chassi', 'Actions']
-
-  constructor(private router: Router,
+  constructor(
+    private router: Router,
     private store: Store,
     private httpService: HttpService
-    ) { }
+  ) {}
 
-  ngOnInit(): void {
+  async ngOnInit() {
+    const empresaId = this.store.selectSnapshot<string>(
+      (state) => state.login.empresaId
+    );
+    this.trips = await this.httpService.get(`viagens/empresa/${empresaId}`);
+    console.log(this.trips);
   }
 
   return = () => {
@@ -27,9 +38,9 @@ export class TripListComponent implements OnInit {
 
   newTrip = () => {
     this.router.navigate(['app', 'operator', 'trips', 'new-trip']);
-  }
+  };
 
-  checkTrip = () => {
-    this.router.navigate(['app', 'operator', 'trips', 'overview'])
-  }
+  checkTrip = (tripId) => {
+    this.router.navigate(['app', 'operator', 'trips', tripId]);
+  };
 }

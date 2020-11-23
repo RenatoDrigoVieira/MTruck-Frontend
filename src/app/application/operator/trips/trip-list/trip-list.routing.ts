@@ -10,17 +10,17 @@ const routes: Routes = [
   {
     path: 'new-trip',
     loadChildren: () =>
-      import('src/app/application/operator/trips/new-trip/new-trip.module').then(
-        (m) => m.NewTripModule
-      )
+      import(
+        'src/app/application/operator/trips/new-trip/new-trip.module'
+      ).then((m) => m.NewTripModule),
   },
   {
-    path: 'overview',
+    path: ':tripId',
     loadChildren: () =>
       import('src/app/application/operator/trips/gps/gps.module').then(
-        m => m.GpsModule
-      )
-  }
+        (m) => m.GpsModule
+      ),
+  },
 ];
 
 @NgModule({
