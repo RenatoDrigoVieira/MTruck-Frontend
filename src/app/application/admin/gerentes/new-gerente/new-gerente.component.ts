@@ -68,7 +68,6 @@ export class NewGerenteComponent implements OnInit {
     try {
       const user = this.newUserForm.getRawValue();
       delete user.rptPassword;
-      console.log(user);
       await this.httpService.post('usuarios', {
         ...user,
         empresa_id: this.empresaId,
