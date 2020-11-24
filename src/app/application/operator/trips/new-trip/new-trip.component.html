@@ -13,11 +13,19 @@
         </mat-form-field>
         <mat-form-field appearance="outline">
           <mat-label> Partida </mat-label>
-          <input matInput formControlName="endereco_origem" />
+          <mat-select formControlName="endereco_origem">
+            <mat-option *ngFor="let destino of destinos" [value]="destino.id">
+              {{ destino.location }}
+            </mat-option>
+          </mat-select>
         </mat-form-field>
         <mat-form-field appearance="outline">
           <mat-label> Destino </mat-label>
-          <input matInput formControlName="endereco_destino" />
+          <mat-select formControlName="endereco_destino">
+            <mat-option *ngFor="let destino of destinos" [value]="destino.id">
+              {{ destino.location }}
+            </mat-option>
+          </mat-select>
         </mat-form-field>
         <mat-form-field appearance="outline">
           <mat-label> Carga </mat-label>

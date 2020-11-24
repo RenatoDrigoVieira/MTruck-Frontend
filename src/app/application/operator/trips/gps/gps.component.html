@@ -1,1 +1,9 @@
-<p>gps works!</p>
+<app-toolbar
+  title="Viagem de {{ trip?.endereco_origem }} para {{
+    trip?.endereco_destino
+  }}"
+  [return]="return"
+>
+</app-toolbar>
+
+<div #mapContainer id="map"></div>

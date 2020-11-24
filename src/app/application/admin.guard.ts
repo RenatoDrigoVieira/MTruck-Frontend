@@ -17,11 +17,11 @@ export class AdminGuard implements CanActivate {
     const userType = this.store.selectSnapshot<string>(
       (state) => state.login.userType
     );
-    if (userType === 'admin') {
+    if (userType === 'Administrador') {
       return true;
-    } else if (userType === 'gerente') {
+    } else if (userType === 'Gerente') {
       this.router.navigate(['app', 'gerente']);
-    } else if (userType === 'operador') {
+    } else if (userType === 'Operador') {
       this.router.navigate(['app', 'operador']);
     }
   }

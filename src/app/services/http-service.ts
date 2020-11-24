@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -27,5 +27,19 @@ export class HttpService {
 
   delete(url: string): Promise<any> {
     return this.http.delete(this.baseUrl + url).toPromise();
+  }
+
+  getRoute() {
+    const corsHeaders = new HttpHeaders({
+      'Content-Type': 'application/json',
+      Accept: 'application/json',
+      'Access-Control-Allow-Origin': 'http://localhost:4200/',
+    });
+    return this.http
+      .get(
+        'https://maps.googleapis.com/maps/api/directions/json?origin=S%C3%A3o%20Paulo&destination=S%C3%A3o%20Caetano&key=AIzaSyB_uySgUU0Wv99vO5whZfjTWRl_NNTqmC8',
+        { headers: corsHeaders }
+      )
+      .toPromise();
   }
 }

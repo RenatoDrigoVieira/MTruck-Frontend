@@ -17,11 +17,11 @@ export class GerenteGuard implements CanActivate {
     const userType = this.store.selectSnapshot<string>(
       (state) => state.login.userType
     );
-    if (userType === 'gerente') {
+    if (userType === 'Gerente') {
       return true;
-    } else if (userType === 'admin') {
+    } else if (userType === 'Administrador') {
       this.router.navigate(['app', 'admin']);
-    } else if (userType === 'operador') {
+    } else if (userType === 'Operador') {
       this.router.navigate(['app', 'operador']);
     }
   }
