@@ -38,13 +38,10 @@ export class LoginComponent implements OnInit {
         new SetUser(user.name, user.perfil_usuario, user.empresa_id)
       );
       if (user.perfil_usuario === 'Administrador') {
-        console.log('admin');
         this.router.navigate(['app', 'admin']);
       } else if (user.perfil_usuario === 'Gerente') {
-        console.log('gerente');
         this.router.navigate(['app', 'gerente']);
       } else if (user.perfil_usuario === 'Operador') {
-        console.log('operador');
         this.router.navigate(['app', 'operator']);
       }
     } catch {

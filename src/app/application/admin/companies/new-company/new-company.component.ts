@@ -35,7 +35,6 @@ export class NewCompanyComponent implements OnInit {
 
   async registerCompany() {
     try {
-      console.log(this.newCompanyForm.getRawValue());
       await this.httpService.post(
         'empresas',
         this.newCompanyForm.getRawValue()

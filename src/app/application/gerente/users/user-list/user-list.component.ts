@@ -25,8 +25,7 @@ export class UserListComponent implements OnInit {
     const empresaId = this.store.selectSnapshot<string>(
       (state) => state.login.empresaId
     );
-    this.users = await this.httpService.get(`usuarios/empresa/${empresaId}`);
-    console.log(this.users);
+    this.users = await this.httpService.get(`usuarios/operador/${empresaId}`);
   }
 
   newUser = () => {

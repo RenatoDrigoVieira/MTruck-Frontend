@@ -53,7 +53,6 @@ export class NewUserComponent implements OnInit {
       (state) => state.login.empresaId
     );
     this.perfisUsuario = await this.httpService.get('usuarios/perfil');
-    console.log(this.perfisUsuario);
   }
 
   return = (): void => {
@@ -64,7 +63,6 @@ export class NewUserComponent implements OnInit {
     try {
       const user = this.newUserForm.getRawValue();
       delete user.rptPassword;
-      console.log(user);
 
       await this.httpService.post('usuarios', {
         ...user,

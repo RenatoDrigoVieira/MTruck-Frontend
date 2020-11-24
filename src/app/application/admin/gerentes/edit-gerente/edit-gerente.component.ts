@@ -41,7 +41,6 @@ export class EditGerenteComponent implements OnInit {
   async ngOnInit() {
     this.empresaId = this.route.snapshot.paramMap.get('companyId');
     this.perfisUsuario = await this.httpService.get('usuarios/perfil');
-    console.log(this.perfisUsuario);
 
     this.userId = this.route.snapshot.paramMap.get('userId');
     this.editUserForm.patchValue(

@@ -32,7 +32,6 @@ export class TripListComponent implements OnInit {
       (state) => state.login.empresaId
     );
     this.trips = await this.httpService.get(`viagens/empresa/${empresaId}`);
-    console.log(this.trips);
   }
 
   return = () => {

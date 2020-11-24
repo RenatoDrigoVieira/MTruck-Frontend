@@ -25,7 +25,6 @@ export class TruckListComponent implements OnInit {
       (state) => state.login.empresaId
     );
     this.trucks = await this.httpService.get(`empresas/caminhoes/${empresaId}`);
-    console.log(this.trucks);
   }
 
   return = () => {

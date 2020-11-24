@@ -5,5 +5,15 @@
   [return]="return"
 >
 </app-toolbar>
+<div class="data">
+  <div class="data-peso">
+    <img src="assets/peso.png" alt="Peso" />
+    <span>: {{ trip?.peso_inicial }} T</span>
+  </div>
+  <div class="data-placa">
+    <img src="assets/placa.png" alt="Placa" />
+    <span>: {{ trip?.placa }}</span>
+  </div>
+</div>
 
 <div #mapContainer id="map"></div>

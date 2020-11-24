@@ -43,7 +43,6 @@ export class EditUserComponent implements OnInit {
       (state) => state.login.empresaId
     );
     this.perfisUsuario = await this.httpService.get('usuarios/perfil');
-    console.log(this.perfisUsuario);
 
     this.userId = this.route.snapshot.paramMap.get('userId');
     this.editUserForm.patchValue(

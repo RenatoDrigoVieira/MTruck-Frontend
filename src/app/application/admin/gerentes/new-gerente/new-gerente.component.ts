@@ -52,11 +52,9 @@ export class NewGerenteComponent implements OnInit {
   async ngOnInit() {
     this.empresaId = this.route.snapshot.paramMap.get('companyId');
     this.perfisUsuario = await this.httpService.get('usuarios/perfil');
-    console.log(this.perfisUsuario);
   }
 
   return = (): void => {
-    console.log('voltando');
     this.router.navigate([
       'app',
       'admin',
@@ -70,7 +68,6 @@ export class NewGerenteComponent implements OnInit {
     try {
       const user = this.newUserForm.getRawValue();
       delete user.rptPassword;
-      console.log(user);
 
       await this.httpService.post('usuarios', {
         ...user,

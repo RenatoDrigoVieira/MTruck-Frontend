@@ -26,7 +26,7 @@ export class GerenteListComponent implements OnInit {
   async ngOnInit() {
     this.empresaId = this.route.snapshot.paramMap.get('companyId');
     this.users = await this.httpService.get(
-      `usuarios/empresa/${this.empresaId}`
+      `usuarios/gerente/${this.empresaId}`
     );
   }
 

@@ -6,6 +6,7 @@ import {
   OnInit,
   ViewChild,
 } from '@angular/core';
+import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
 import { HttpService } from 'src/app/services/http-service';
@@ -26,14 +27,15 @@ export class GpsComponent implements OnInit, AfterViewInit {
   constructor(
     private httpService: HttpService,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private snackBar: MatSnackBar
   ) {}
 
   async ngOnInit() {}
   async ngAfterViewInit() {
     const tripId = this.route.snapshot.paramMap.get('tripId');
     this.trip = await this.httpService.get(`viagens/${tripId}`);
-    console.log(this.trip);
+
     const maps = new google.maps.DirectionsService();
     const directionsDisplay = new google.maps.DirectionsRenderer();
 
@@ -89,6 +91,16 @@ export class GpsComponent implements OnInit, AfterViewInit {
           point = point + 1;
           marker.setPosition(coordinates);
           if (this.cordenadas[point] === undefined) {
+            this.httpService.patch(`viagens/${tripId}`, {
+              ...this.trip,
+              status: 'Finalizado',
+            });
+            this.snackBar.open('Viagem finalizada', '', {
+              panelClass: 'snackbar',
+              duration: 5000,
+              horizontalPosition: 'center',
+              verticalPosition: 'bottom',
+            });
             clearInterval();
           }
         }, 5000);
