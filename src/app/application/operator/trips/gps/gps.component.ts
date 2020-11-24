@@ -21,7 +21,7 @@ export class GpsComponent implements OnInit, AfterViewInit, OnDestroy {
   cordenadas: { lat: number; lng: number }[] = [];
   trip;
 
-  interval: NodeJS.Timeout;
+  interval;
 
   map: google.maps.Map;
 
