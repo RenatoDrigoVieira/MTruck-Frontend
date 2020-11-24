@@ -27,6 +27,7 @@
     "@ngxs/store": "^3.7.0",
     "@types/googlemaps": "3.39.12",
     "express": "^4.17.1",
+    "ngx-mask": "^11.1.2",
     "path": "^0.12.7",
     "rxjs": "~6.5.4",
     "tslib": "^1.10.0",

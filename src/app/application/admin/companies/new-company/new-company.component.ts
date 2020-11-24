@@ -20,7 +20,7 @@ export class NewCompanyComponent implements OnInit {
 
   newCompanyForm = new FormGroup({
     nome: new FormControl('', [Validators.required]),
-    cnpj: new FormControl('', [Validators.required]),
+    cnpj: new FormControl('', [Validators.required, Validators.minLength(14)]),
     sede: new FormControl('', [Validators.required]),
     contrato_id: new FormControl('', [Validators.required]),
   });
@@ -35,6 +35,7 @@ export class NewCompanyComponent implements OnInit {
 
   async registerCompany() {
     try {
+      console.log(this.newCompanyForm.getRawValue());
       await this.httpService.post(
         'empresas',
         this.newCompanyForm.getRawValue()

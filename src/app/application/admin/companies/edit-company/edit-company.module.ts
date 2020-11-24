@@ -15,7 +15,11 @@ import { MatOptionModule } from '@angular/material/core';
 import { MatSelectModule } from '@angular/material/select';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { ToolbarModule } from 'src/app/application/common/toolbar/toolbar.module';
+import { IConfig, NgxMaskModule } from 'ngx-mask';
 
+const maskConfig: Partial<IConfig> = {
+  validation: false,
+};
 @NgModule({
   declarations: [EditCompanyComponent],
   imports: [
@@ -32,6 +36,7 @@ import { ToolbarModule } from 'src/app/application/common/toolbar/toolbar.module
     MatSelectModule,
     MatOptionModule,
     MatSnackBarModule,
+    NgxMaskModule.forRoot(maskConfig),
   ],
 })
 export class EditCompanyModule {}

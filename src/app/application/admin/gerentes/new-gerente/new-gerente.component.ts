@@ -7,17 +7,17 @@ import {
   Validators,
 } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Store } from '@ngxs/store';
 import { User } from 'src/app/models/User';
 import { HttpService } from 'src/app/services/http-service';
 
 @Component({
-  selector: 'app-new-user',
-  templateUrl: './new-user.component.html',
-  styleUrls: ['./new-user.component.scss'],
+  selector: 'app-new-gerente',
+  templateUrl: './new-gerente.component.html',
+  styleUrls: ['./new-gerente.component.scss'],
 })
-export class NewUserComponent implements OnInit {
+export class NewGerenteComponent implements OnInit {
   user: User = new User();
   rptPassword: string = '';
   perfisUsuario;
@@ -27,7 +27,8 @@ export class NewUserComponent implements OnInit {
     private router: Router,
     private snackBar: MatSnackBar,
     private httpService: HttpService,
-    private store: Store
+    private store: Store,
+    private route: ActivatedRoute
   ) {}
   passwordValidator: ValidatorFn = (
     control: FormGroup
@@ -49,15 +50,20 @@ export class NewUserComponent implements OnInit {
   );
 
   async ngOnInit() {
-    this.empresaId = this.store.selectSnapshot<string>(
-      (state) => state.login.empresaId
-    );
+    this.empresaId = this.route.snapshot.paramMap.get('companyId');
     this.perfisUsuario = await this.httpService.get('usuarios/perfil');
     console.log(this.perfisUsuario);
   }
 
   return = (): void => {
-    this.router.navigate(['app', 'gerente', 'user']);
+    console.log('voltando');
+    this.router.navigate([
+      'app',
+      'admin',
+      'company',
+      this.empresaId,
+      'gerentes',
+    ]);
   };
 
   async registerUser() {
@@ -70,10 +76,10 @@ export class NewUserComponent implements OnInit {
         ...user,
         empresa_id: this.empresaId,
         perfil_id: this.perfisUsuario.find(
-          (perfil) => perfil.descricao === 'Operador'
+          (perfil) => perfil.descricao === 'Gerente'
         ).id,
       });
-      this.snackBar.open('Operador cadastrado com sucesso', 'Ok', {
+      this.snackBar.open('Gerente cadastrado com sucesso', 'Ok', {
         panelClass: 'snackbar',
         duration: 6000,
         horizontalPosition: 'center',

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { Store } from '@ngxs/store';
 import { HttpService } from 'src/app/services/http-service';
@@ -14,7 +15,9 @@ export class TruckListComponent implements OnInit {
   constructor(
     private router: Router,
     private store: Store,
-    private httpService: HttpService
+    private httpService: HttpService,
+    private cdr: ChangeDetectorRef,
+    private snackBar: MatSnackBar
   ) {}
 
   async ngOnInit() {
@@ -34,5 +37,20 @@ export class TruckListComponent implements OnInit {
   };
   editTruck(truckId) {
     this.router.navigate(['app', 'gerente', 'truck', truckId]);
+  }
+  async deleteTruck(truckId) {
+    try {
+      await this.httpService.delete(`usuarios/${truckId}`);
+      const index = this.trucks.findIndex((truck) => truck.id === truckId);
+      this.trucks.splice(index, 1);
+      this.cdr.markForCheck();
+      this.snackBar.open('Caminhão excluido com sucesso', '', {
+        duration: 5000,
+      });
+    } catch {
+      this.snackBar.open('Ocorreu um erro', '', {
+        duration: 5000,
+      });
+    }
   }
 }

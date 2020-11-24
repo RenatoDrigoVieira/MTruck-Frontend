@@ -13,11 +13,11 @@ import { User } from 'src/app/models/User';
 import { HttpService } from 'src/app/services/http-service';
 
 @Component({
-  selector: 'app-edit-user',
-  templateUrl: './edit-user.component.html',
-  styleUrls: ['./edit-user.component.scss'],
+  selector: 'app-edit-gerente',
+  templateUrl: './edit-gerente.component.html',
+  styleUrls: ['./edit-gerente.component.scss'],
 })
-export class EditUserComponent implements OnInit {
+export class EditGerenteComponent implements OnInit {
   user: User = new User();
   perfisUsuario;
   empresaId;
@@ -39,9 +39,7 @@ export class EditUserComponent implements OnInit {
   });
 
   async ngOnInit() {
-    this.empresaId = this.store.selectSnapshot<string>(
-      (state) => state.login.empresaId
-    );
+    this.empresaId = this.route.snapshot.paramMap.get('companyId');
     this.perfisUsuario = await this.httpService.get('usuarios/perfil');
     console.log(this.perfisUsuario);
 
@@ -52,7 +50,13 @@ export class EditUserComponent implements OnInit {
   }
 
   return = (): void => {
-    this.router.navigate(['app', 'gerente', 'user']);
+    this.router.navigate([
+      'app',
+      'admin',
+      'company',
+      this.empresaId,
+      'gerentes',
+    ]);
   };
 
   async editUser() {
@@ -62,10 +66,10 @@ export class EditUserComponent implements OnInit {
         ...user,
         empresa_id: this.empresaId,
         perfil_id: this.perfisUsuario.find(
-          (perfil) => perfil.descricao === 'Operador'
+          (perfil) => perfil.descricao === 'Gerente'
         ).id,
       });
-      this.snackBar.open('Operador editado com sucesso', 'Ok', {
+      this.snackBar.open('Gerente editado com sucesso', 'Ok', {
         panelClass: 'snackbar',
         duration: 6000,
         horizontalPosition: 'center',

@@ -1,40 +1,55 @@
 import { Route } from '@angular/compiler/src/core';
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Store } from '@ngxs/store';
 import { HttpService } from 'src/app/services/http-service';
 
 @Component({
-  selector: 'app-user-list',
-  templateUrl: './user-list.component.html',
-  styleUrls: ['./user-list.component.scss'],
+  selector: 'app-gerente-list',
+  templateUrl: './gerente-list.component.html',
+  styleUrls: ['./gerente-list.component.scss'],
 })
-export class UserListComponent implements OnInit {
+export class GerenteListComponent implements OnInit {
   users;
   displayedColumns: string[] = ['Nome', 'CPF', 'Email', 'Actions'];
+  empresaId;
   constructor(
     private router: Router,
     private store: Store,
     private httpService: HttpService,
-    private cdr: ChangeDetectorRef,
-    private snackBar: MatSnackBar
+    private route: ActivatedRoute,
+    private snackBar: MatSnackBar,
+    private cdr: ChangeDetectorRef
   ) {}
 
   async ngOnInit() {
-    const empresaId = this.store.selectSnapshot<string>(
-      (state) => state.login.empresaId
+    this.empresaId = this.route.snapshot.paramMap.get('companyId');
+    this.users = await this.httpService.get(
+      `usuarios/empresa/${this.empresaId}`
     );
-    this.users = await this.httpService.get(`usuarios/empresa/${empresaId}`);
-    console.log(this.users);
   }
 
   newUser = () => {
-    this.router.navigate(['app', 'gerente', 'user', 'new-user']);
+    this.router.navigate([
+      'app',
+      'admin',
+      'company',
+      this.empresaId,
+      'gerentes',
+      'new-user',
+    ]);
   };
 
   editUser = (userId) => {
-    this.router.navigate(['app', 'gerente', 'user', userId]);
+    this.router.navigate([
+      'app',
+      'admin',
+      'company',
+      this.empresaId,
+      'gerentes',
+      userId,
+    ]);
   };
 
   async deleteUser(userId) {
@@ -43,7 +58,7 @@ export class UserListComponent implements OnInit {
       const index = this.users.findIndex((user) => user.id === userId);
       this.users.splice(index, 1);
       this.cdr.markForCheck();
-      this.snackBar.open('Operador excluido com sucesso', '', {
+      this.snackBar.open('Gerente excluido com sucesso', '', {
         duration: 5000,
       });
     } catch {
@@ -54,6 +69,6 @@ export class UserListComponent implements OnInit {
   }
 
   return = () => {
-    this.router.navigate(['app', 'gerente']);
+    this.router.navigate(['app', 'admin', 'company']);
   };
 }

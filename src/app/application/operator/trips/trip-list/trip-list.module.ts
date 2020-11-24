@@ -8,6 +8,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { ToolbarModule } from 'src/app/application/common/toolbar/toolbar.module';
 import { MatTableModule } from '@angular/material/table';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [TripListComponent],
@@ -18,7 +19,8 @@ import { MatTableModule } from '@angular/material/table';
     MatIconModule,
     MatButtonModule,
     MatTableModule,
-    ToolbarModule
-  ]
+    ToolbarModule,
+    MatSnackBarModule,
+  ],
 })
-export class TripListModule { }
+export class TripListModule {}

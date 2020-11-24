@@ -10,6 +10,7 @@ import { CommonModule } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
 import { MatTableModule } from '@angular/material/table';
 import { ToolbarModule } from 'src/app/application/common/toolbar/toolbar.module';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [TruckListComponent],
@@ -21,6 +22,7 @@ import { ToolbarModule } from 'src/app/application/common/toolbar/toolbar.module
     ToolbarModule,
     MatButtonModule,
     MatTableModule,
+    MatSnackBarModule,
   ],
 })
 export class TruckModule {}

@@ -1,8 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import { CompanyListComponent } from './company-list.component';
-import { CompanyRoutingModule } from './company-list.routing';
+import { GerenteListComponent } from './gerente-list.component';
+import { GerenteRoutingModule } from './gerente-list.routing';
 import { MatListModule } from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -16,11 +16,12 @@ import { IConfig, NgxMaskModule } from 'ngx-mask';
 const maskConfig: Partial<IConfig> = {
   validation: false,
 };
+
 @NgModule({
-  declarations: [CompanyListComponent],
+  declarations: [GerenteListComponent],
   imports: [
     CommonModule,
-    CompanyRoutingModule,
+    GerenteRoutingModule,
     MatListModule,
     MatIconModule,
     ToolbarModule,
@@ -30,4 +31,4 @@ const maskConfig: Partial<IConfig> = {
     NgxMaskModule.forRoot(maskConfig),
   ],
 })
-export class CompanyListModule {}
+export class GerenteListModule {}

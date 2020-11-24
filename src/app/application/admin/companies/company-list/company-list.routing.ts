@@ -21,6 +21,13 @@ const routes: Routes = [
         'src/app/application/admin/companies/edit-company/edit-company.module'
       ).then((m) => m.EditCompanyModule),
   },
+  {
+    path: ':companyId/gerentes',
+    loadChildren: () =>
+      import(
+        'src/app/application/admin/gerentes/gerente-list/gerente-list.module'
+      ).then((m) => m.GerenteListModule),
+  },
 ];
 
 @NgModule({

@@ -17,7 +17,11 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { NgxsStoragePluginModule } from '@ngxs/storage-plugin';
 import { AgmCoreModule } from '@agm/core';
+import { IConfig, NgxMaskModule } from 'ngx-mask';
 
+const maskConfig: Partial<IConfig> = {
+  validation: false,
+};
 @NgModule({
   declarations: [AppComponent, LoginComponent],
   imports: [
@@ -35,6 +39,7 @@ import { AgmCoreModule } from '@agm/core';
     NgxsStoragePluginModule.forRoot({
       key: ['login.logged', 'login.name', 'login.userType', 'login.empresaId'],
     }),
+    NgxMaskModule.forRoot(maskConfig),
   ],
   providers: [],
   bootstrap: [AppComponent],

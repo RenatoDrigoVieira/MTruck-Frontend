@@ -6,8 +6,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { CommonModule } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
-import { NewUserComponent } from './new-user.component';
-import { NewUserRouting } from './new-user.routing';
+import { EditGerenteRouting } from './edit-gerente.routing';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
@@ -16,7 +15,7 @@ import { MatOptionModule } from '@angular/material/core';
 import { MatSelectModule } from '@angular/material/select';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { ToolbarModule } from 'src/app/application/common/toolbar/toolbar.module';
-import { EditUserComponent } from '../edit-user/edit-user.component';
+import { EditGerenteComponent } from './edit-gerente.component';
 import { IConfig, NgxMaskModule } from 'ngx-mask';
 
 const maskConfig: Partial<IConfig> = {
@@ -24,7 +23,7 @@ const maskConfig: Partial<IConfig> = {
 };
 
 @NgModule({
-  declarations: [NewUserComponent],
+  declarations: [EditGerenteComponent],
   imports: [
     CommonModule,
     MatListModule,
@@ -38,8 +37,8 @@ const maskConfig: Partial<IConfig> = {
     MatSelectModule,
     MatOptionModule,
     MatSnackBarModule,
-    NewUserRouting,
+    EditGerenteRouting,
     NgxMaskModule.forRoot(maskConfig),
   ],
 })
-export class NewUserModule {}
+export class EditGerenteModule {}

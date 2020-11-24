@@ -16,7 +16,11 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { ToolbarModule } from 'src/app/application/common/toolbar/toolbar.module';
 import { EditUserComponent } from './edit-user.component';
+import { IConfig, NgxMaskModule } from 'ngx-mask';
 
+const maskConfig: Partial<IConfig> = {
+  validation: false,
+};
 @NgModule({
   declarations: [EditUserComponent],
   imports: [
@@ -33,6 +37,7 @@ import { EditUserComponent } from './edit-user.component';
     MatOptionModule,
     MatSnackBarModule,
     EditUserRouting,
+    NgxMaskModule.forRoot(maskConfig),
   ],
 })
 export class EditUserModule {}

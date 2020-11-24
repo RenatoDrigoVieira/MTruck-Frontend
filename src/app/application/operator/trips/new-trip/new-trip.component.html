@@ -10,6 +10,9 @@
               {{ truck.placa }}
             </mat-option>
           </mat-select>
+          <mat-error *ngIf="newTripForm.get('caminhao_id').hasError('required')"
+            >Campo obrigatório</mat-error
+          >
         </mat-form-field>
         <mat-form-field appearance="outline">
           <mat-label> Partida </mat-label>
@@ -18,6 +21,10 @@
               {{ destino.location }}
             </mat-option>
           </mat-select>
+          <mat-error
+            *ngIf="newTripForm.get('endereco_origem').hasError('required')"
+            >Campo obrigatório</mat-error
+          >
         </mat-form-field>
         <mat-form-field appearance="outline">
           <mat-label> Destino </mat-label>
@@ -26,14 +33,25 @@
               {{ destino.location }}
             </mat-option>
           </mat-select>
+          <mat-error
+            *ngIf="newTripForm.get('endereco_destino').hasError('required')"
+            >Campo obrigatório</mat-error
+          >
         </mat-form-field>
         <mat-form-field appearance="outline">
           <mat-label> Carga </mat-label>
           <input matInput formControlName="carga" />
+          <mat-error *ngIf="newTripForm.get('carga').hasError('required')"
+            >Campo obrigatório</mat-error
+          >
         </mat-form-field>
         <mat-form-field appearance="outline">
           <mat-label> Peso Líquido </mat-label>
           <input type="number" matInput formControlName="peso_inicial" />
+          <mat-error
+            *ngIf="newTripForm.get('peso_inicial').hasError('required')"
+            >Campo obrigatório</mat-error
+          >
         </mat-form-field>
         <button
           [disabled]="!newTripForm.valid"

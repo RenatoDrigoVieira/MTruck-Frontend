@@ -6,14 +6,23 @@
         <mat-form-field appearance="outline">
           <mat-label> Placa </mat-label>
           <input matInput formControlName="placa" />
+          <mat-error *ngIf="editTruckForm.get('placa').hasError('required')"
+            >Campo obrigatório</mat-error
+          >
         </mat-form-field>
         <mat-form-field appearance="outline">
           <mat-label> Chassi </mat-label>
           <input matInput formControlName="chassi" />
+          <mat-error *ngIf="editTruckForm.get('chassi').hasError('required')"
+            >Campo obrigatório</mat-error
+          >
         </mat-form-field>
         <mat-form-field appearance="outline">
           <mat-label> Modelo </mat-label>
           <input matInput formControlName="modelo" />
+          <mat-error *ngIf="editTruckForm.get('modelo').hasError('required')"
+            >Campo obrigatório</mat-error
+          >
         </mat-form-field>
         <button
           [disabled]="!editTruckForm.valid"

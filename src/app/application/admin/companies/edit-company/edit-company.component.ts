@@ -22,7 +22,7 @@ export class EditCompanyComponent implements OnInit {
 
   editCompanyForm = new FormGroup({
     nome: new FormControl('', [Validators.required]),
-    cnpj: new FormControl('', [Validators.required]),
+    cnpj: new FormControl('', [Validators.required, Validators.minLength(14)]),
     sede: new FormControl('', [Validators.required]),
     contrato_id: new FormControl('', [Validators.required]),
   });

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router, RouterModule } from '@angular/router';
 import { HttpService } from 'src/app/services/http-service';
 
@@ -12,7 +13,12 @@ export class CompanyListComponent implements OnInit {
   contratos;
   displayedColumns: string[] = ['Nome', 'CNPJ', 'Sede', 'Contrato', 'Actions'];
 
-  constructor(private router: Router, private httpService: HttpService) {}
+  constructor(
+    private router: Router,
+    private httpService: HttpService,
+    private snackBar: MatSnackBar,
+    private cdr: ChangeDetectorRef
+  ) {}
 
   async ngOnInit() {
     this.contratos = await this.httpService.get('contratos');
@@ -25,6 +31,26 @@ export class CompanyListComponent implements OnInit {
 
   editCompany(companyId) {
     this.router.navigate(['app', 'admin', 'company', companyId]);
+  }
+  async deleteCompany(companyId) {
+    try {
+      await this.httpService.delete(`empresas/${companyId}`);
+      const index = this.companies.findIndex(
+        (company) => company.id === companyId
+      );
+      this.companies.splice(index, 1);
+      this.cdr.markForCheck();
+      this.snackBar.open('Empresa excluida com sucesso', '', {
+        duration: 5000,
+      });
+    } catch {
+      this.snackBar.open('Ocorreu um erro', '', {
+        duration: 5000,
+      });
+    }
+  }
+  companyGerentes(companyId) {
+    this.router.navigate(['app', 'admin', 'company', companyId, 'gerentes']);
   }
 
   findContract = (id) =>

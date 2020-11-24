@@ -6,10 +6,19 @@
       <mat-form-field appearance="outline">
         <mat-label>Email</mat-label>
         <input matInput formControlName="email" />
+        <mat-error *ngIf="loginForm.get('email').hasError('required')"
+          >Campo obrigatório</mat-error
+        >
+        <mat-error *ngIf="loginForm.get('email').hasError('email')"
+          >Digite um formato de email válido</mat-error
+        >
       </mat-form-field>
       <mat-form-field appearance="outline">
         <mat-label>Senha</mat-label>
         <input matInput formControlName="senha" />
+        <mat-error *ngIf="loginForm.get('senha').hasError('required')"
+          >Campo obrigatório</mat-error
+        >
       </mat-form-field>
       <div class="Login-buttons">
         <button
@@ -20,10 +29,6 @@
         >
           Entrar
         </button>
-        <div class="Login-buttons-register">
-          <h3>Novo?</h3>
-          <h3><a href="https://www.w3schools.com">Criar conta</a>.</h3>
-        </div>
       </div>
     </form>
   </div>

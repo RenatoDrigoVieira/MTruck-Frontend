@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { Store } from '@ngxs/store';
 import { HttpService } from 'src/app/services/http-service';
@@ -21,7 +22,9 @@ export class TripListComponent implements OnInit {
   constructor(
     private router: Router,
     private store: Store,
-    private httpService: HttpService
+    private httpService: HttpService,
+    private cdr: ChangeDetectorRef,
+    private snackBar: MatSnackBar
   ) {}
 
   async ngOnInit() {
@@ -39,7 +42,21 @@ export class TripListComponent implements OnInit {
   newTrip = () => {
     this.router.navigate(['app', 'operator', 'trips', 'new-trip']);
   };
-
+  async deleteTrip(tripId) {
+    try {
+      await this.httpService.delete(`viagens/${tripId}`);
+      const index = this.trips.findIndex((trip) => trip.viagem_id === tripId);
+      this.trips.splice(index, 1);
+      this.cdr.markForCheck();
+      this.snackBar.open('Operador excluido com sucesso', '', {
+        duration: 5000,
+      });
+    } catch {
+      this.snackBar.open('Ocorreu um erro', '', {
+        duration: 5000,
+      });
+    }
+  }
   checkTrip = (tripId) => {
     this.router.navigate(['app', 'operator', 'trips', tripId]);
   };

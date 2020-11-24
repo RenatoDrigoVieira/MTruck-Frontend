@@ -6,14 +6,31 @@
         <mat-form-field appearance="outline">
           <mat-label> Nome da Empresa </mat-label>
           <input matInput formControlName="nome" />
+          <mat-error *ngIf="editCompanyForm.get('nome').hasError('required')"
+            >Campo obrigatório</mat-error
+          >
         </mat-form-field>
         <mat-form-field appearance="outline">
           <mat-label> CNPJ </mat-label>
-          <input matInput formControlName="cnpj" />
+          <input
+            type="text"
+            mask="00.000.000/0000-00"
+            matInput
+            formControlName="cnpj"
+          />
+          <mat-error *ngIf="editCompanyForm.get('cnpj').hasError('required')"
+            >Campo obrigatório</mat-error
+          >
+          <mat-error *ngIf="editCompanyForm.get('cnpj').hasError('minlength')"
+            >Escreva todos os digitos do CNPJ</mat-error
+          >
         </mat-form-field>
         <mat-form-field appearance="outline">
           <mat-label> Sede </mat-label>
           <input matInput formControlName="sede" />
+          <mat-error *ngIf="editCompanyForm.get('sede').hasError('required')"
+            >Campo obrigatório</mat-error
+          >
         </mat-form-field>
         <mat-form-field appearance="outline">
           <mat-label> Contratos </mat-label>
@@ -25,6 +42,10 @@
               {{ contrato.tipo }}
             </mat-option>
           </mat-select>
+          <mat-error
+            *ngIf="editCompanyForm.get('contrato_id').hasError('required')"
+            >Campo obrigatório</mat-error
+          >
         </mat-form-field>
         <button
           [disabled]="!editCompanyForm.valid"
