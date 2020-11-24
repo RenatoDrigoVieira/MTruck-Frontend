@@ -98,7 +98,6 @@ export class GpsComponent implements OnInit, AfterViewInit, OnDestroy {
           marker.setPosition(coordinates);
           if (this.cordenadas[point] === undefined) {
             this.httpService.patch(`viagens/${tripId}`, {
-              ...this.trip,
               status: 'Finalizado',
             });
             this.snackBar.open('Viagem finalizada', '', {

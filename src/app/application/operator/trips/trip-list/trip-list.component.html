@@ -38,7 +38,11 @@
     <ng-container matColumnDef="Actions">
       <th mat-header-cell *matHeaderCellDef>Actions</th>
       <td mat-cell *matCellDef="let element">
-        <button (click)="checkTrip(element.viagem_id)" mat-button>
+        <button
+          *ngIf="element.status === 'em andamento'"
+          (click)="checkTrip(element.viagem_id)"
+          mat-button
+        >
           Acompanhar Rota
         </button>
         <button (click)="deleteTrip(element.viagem_id)" mat-button>
