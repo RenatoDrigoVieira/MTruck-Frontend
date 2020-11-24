@@ -42,7 +42,7 @@ export class TruckListComponent implements OnInit {
       await this.httpService.delete(`usuarios/${truckId}`);
       const index = this.trucks.findIndex((truck) => truck.id === truckId);
       this.trucks.splice(index, 1);
-      this.cdr.markForCheck();
+      this.cdr.detectChanges();
       this.snackBar.open('Caminhão excluido com sucesso', '', {
         duration: 5000,
       });

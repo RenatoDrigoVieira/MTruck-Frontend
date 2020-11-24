@@ -32,7 +32,7 @@ export class NewUserComponent implements OnInit {
   passwordValidator: ValidatorFn = (
     control: FormGroup
   ): ValidationErrors | null => {
-    const password = control.get('password').value;
+    const password = control.get('senha').value;
     const rptPassword = control.get('rptPassword').value;
     return password === rptPassword ? null : { passwordInvalid: true };
   };
@@ -42,7 +42,7 @@ export class NewUserComponent implements OnInit {
       nome: new FormControl('', [Validators.required]),
       cpf: new FormControl('', [Validators.required, Validators.minLength(11)]),
       email: new FormControl('', [Validators.required, Validators.email]),
-      password: new FormControl('', [Validators.required]),
+      senha: new FormControl('', [Validators.required]),
       rptPassword: new FormControl('', [Validators.required]),
     },
     { validators: this.passwordValidator }

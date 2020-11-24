@@ -35,7 +35,7 @@ export class EditGerenteComponent implements OnInit {
     nome: new FormControl('', [Validators.required]),
     cpf: new FormControl('', [Validators.required, Validators.minLength(11)]),
     email: new FormControl('', [Validators.required, Validators.email]),
-    password: new FormControl(''),
+    senha: new FormControl(''),
   });
 
   async ngOnInit() {

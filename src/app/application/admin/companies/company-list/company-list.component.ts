@@ -39,7 +39,7 @@ export class CompanyListComponent implements OnInit {
         (company) => company.id === companyId
       );
       this.companies.splice(index, 1);
-      this.cdr.markForCheck();
+      this.cdr.detectChanges();
       this.snackBar.open('Empresa excluida com sucesso', '', {
         duration: 5000,
       });

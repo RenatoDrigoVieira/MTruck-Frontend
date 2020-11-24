@@ -84,6 +84,8 @@ export class NewTripComponent implements OnInit {
         (destino) =>
           destino.id === this.newTripForm.get('endereco_destino').value
       );
+      console.log(partida);
+      console.log(destino);
       await this.httpService.post(`viagens`, {
         ...this.newTripForm.getRawValue(),
         endereco_origem: partida.location,

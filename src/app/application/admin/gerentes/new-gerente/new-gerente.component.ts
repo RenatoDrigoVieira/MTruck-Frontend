@@ -33,7 +33,7 @@ export class NewGerenteComponent implements OnInit {
   passwordValidator: ValidatorFn = (
     control: FormGroup
   ): ValidationErrors | null => {
-    const password = control.get('password').value;
+    const password = control.get('senha').value;
     const rptPassword = control.get('rptPassword').value;
     return password === rptPassword ? null : { passwordInvalid: true };
   };
@@ -43,7 +43,7 @@ export class NewGerenteComponent implements OnInit {
       nome: new FormControl('', [Validators.required]),
       cpf: new FormControl('', [Validators.required, Validators.minLength(11)]),
       email: new FormControl('', [Validators.required, Validators.email]),
-      password: new FormControl('', [Validators.required]),
+      senha: new FormControl('', [Validators.required]),
       rptPassword: new FormControl('', [Validators.required]),
     },
     { validators: this.passwordValidator }
@@ -68,7 +68,7 @@ export class NewGerenteComponent implements OnInit {
     try {
       const user = this.newUserForm.getRawValue();
       delete user.rptPassword;
-
+      console.log(user);
       await this.httpService.post('usuarios', {
         ...user,
         empresa_id: this.empresaId,

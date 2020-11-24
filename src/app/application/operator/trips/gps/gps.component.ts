@@ -3,6 +3,7 @@ import {
   AfterViewInit,
   Component,
   ElementRef,
+  OnDestroy,
   OnInit,
   ViewChild,
 } from '@angular/core';
@@ -16,9 +17,11 @@ import { HttpService } from 'src/app/services/http-service';
   templateUrl: './gps.component.html',
   styleUrls: ['./gps.component.scss'],
 })
-export class GpsComponent implements OnInit, AfterViewInit {
+export class GpsComponent implements OnInit, AfterViewInit, OnDestroy {
   cordenadas: { lat: number; lng: number }[] = [];
   trip;
+
+  interval: NodeJS.Timeout;
 
   map: google.maps.Map;
 
@@ -31,6 +34,9 @@ export class GpsComponent implements OnInit, AfterViewInit {
     private snackBar: MatSnackBar
   ) {}
 
+  ngOnDestroy() {
+    clearInterval(this.interval);
+  }
   async ngOnInit() {}
   async ngAfterViewInit() {
     const tripId = this.route.snapshot.paramMap.get('tripId');
@@ -82,7 +88,7 @@ export class GpsComponent implements OnInit, AfterViewInit {
         });
         marker.setMap(this.map);
         let point = 1;
-        setInterval(() => {
+        this.interval = setInterval(() => {
           const coordinates = new google.maps.LatLng(
             this.cordenadas[point].lat,
             this.cordenadas[point].lng

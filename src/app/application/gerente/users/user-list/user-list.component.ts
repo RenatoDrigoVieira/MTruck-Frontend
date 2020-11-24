@@ -41,7 +41,7 @@ export class UserListComponent implements OnInit {
       await this.httpService.delete(`usuarios/${userId}`);
       const index = this.users.findIndex((user) => user.id === userId);
       this.users.splice(index, 1);
-      this.cdr.markForCheck();
+      this.cdr.detectChanges();
       this.snackBar.open('Operador excluido com sucesso', '', {
         duration: 5000,
       });

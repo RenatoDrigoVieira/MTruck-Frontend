@@ -16,6 +16,7 @@ export class TripListComponent implements OnInit {
     'Carga',
     'Partida',
     'Destino',
+    'Status',
     'Actions',
   ];
 
@@ -46,7 +47,7 @@ export class TripListComponent implements OnInit {
       await this.httpService.delete(`viagens/${tripId}`);
       const index = this.trips.findIndex((trip) => trip.viagem_id === tripId);
       this.trips.splice(index, 1);
-      this.cdr.markForCheck();
+      this.cdr.detectChanges();
       this.snackBar.open('Operador excluido com sucesso', '', {
         duration: 5000,
       });
